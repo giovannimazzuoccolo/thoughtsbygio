@@ -1,0 +1,61 @@
+---
+import { Sun, Moon } from 'lucide-astro';
+---
+
+<button id="theme-toggle" aria-label="Toggle dark mode">
+  <Sun id="sun-icon" size={20} />
+  <Moon id="moon-icon" size={20} />
+</button>
+
+<script>
+  const toggle = document.getElementById('theme-toggle');
+  const sunIcon = document.getElementById('sun-icon');
+  const moonIcon = document.getElementById('moon-icon');
+  
+  function updateIcon(isDark) {
+    if (isDark) {
+      sunIcon.style.display = 'block';
+      moonIcon.style.display = 'none';
+    } else {
+      sunIcon.style.display = 'none';
+      moonIcon.style.display = 'block';
+    }
+  }
+  
+  // Initialize theme
+  const savedTheme = localStorage.getItem('theme');
+  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+  const isDark = savedTheme === 'dark' || (!savedTheme && prefersDark);
+  
+  if (savedTheme) {
+    document.documentElement.setAttribute('data-theme', savedTheme);
+  }
+  updateIcon(isDark);
+  
+  // Toggle theme
+  toggle?.addEventListener('click', () => {
+    const currentTheme = document.documentElement.getAttribute('data-theme');
+    const isDarkNow = currentTheme === 'dark' || (!currentTheme && prefersDark);
+    const newTheme = isDarkNow ? 'light' : 'dark';
+    
+    document.documentElement.setAttribute('data-theme', newTheme);
+    localStorage.setItem('theme', newTheme);
+    updateIcon(newTheme === 'dark');
+  });
+</script>
+
+<style>
+  button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+    border-radius: 4px;
+    color: rgb(var(--text-primary));
+    transition: background-color 0.2s ease;
+  }
+  
+  button:hover {
+    background: rgb(var(--gray-light));
+  }
+</style>
