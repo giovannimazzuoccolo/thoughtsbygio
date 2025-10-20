@@ -25,6 +25,17 @@ const [featuredPost, ...otherPosts] = posts;
 				border-bottom: 2px solid rgb(var(--gray-light));
 			}
 			
+			.featured-link {
+				display: block;
+				text-decoration: none;
+				color: inherit;
+				transition: transform 0.2s ease;
+			}
+			
+			.featured-link:hover {
+				transform: translateY(-2px);
+			}
+			
 			.featured img {
 				width: 100%;
 				border-radius: 12px;
@@ -115,15 +126,17 @@ const [featuredPost, ...otherPosts] = posts;
 		<main>
 			{featuredPost && (
 				<article class="featured">
-					{featuredPost.data.heroImage && (
-						<Image 
-							width={800} 
-							height={400} 
-							src={featuredPost.data.heroImage} 
-							alt={featuredPost.data.title} 
-						/>
-					)}
-					<h1>{featuredPost.data.title}</h1>
+					<a href={`/blog/${featuredPost.id}/`} class="featured-link">
+						{featuredPost.data.heroImage && (
+							<Image 
+								width={800} 
+								height={400} 
+								src={featuredPost.data.heroImage} 
+								alt={featuredPost.data.title} 
+							/>
+						)}
+						<h1>{featuredPost.data.title}</h1>
+					</a>
 					<p class="date">
 						<FormattedDate date={featuredPost.data.pubDate} />
 					</p>
