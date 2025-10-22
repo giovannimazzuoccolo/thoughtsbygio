@@ -2,7 +2,7 @@
 title: 'How to Install Official Lighthouse CI in GitHub Actions'
 description: 'Learn how to set up Google's official Lighthouse CI in your GitHub Actions workflow to automatically test your website performance, accessibility, and SEO.'
 pubDate: 'Oct 22 2024'
-heroImage: '/blog-placeholder-3.jpg'
+heroImage: '../../assets/lighthouse-ci-hero.jpg'
 ---
 
 Performance monitoring is crucial for any website, and Google's Lighthouse is the gold standard for measuring web performance, accessibility, best practices, and SEO. In this guide, I'll show you how to integrate the official Lighthouse CI directly into your GitHub Actions workflow.
