@@ -1,5 +1,4 @@
-h
---
+---
 title: "How to Install Official Lighthouse CI in GitHub Actions"
 description: "Learn how to set up Google's official Lighthouse CI in your GitHub Actions workflow to automatically test your website performance, accessibility, and SEO."
 pubDate: "Oct 22 2024"
