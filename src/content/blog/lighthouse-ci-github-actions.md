@@ -1,19 +1,16 @@
----
+h
+--
 title: "How to Install Official Lighthouse CI in GitHub Actions"
 description: "Learn how to set up Google's official Lighthouse CI in your GitHub Actions workflow to automatically test your website performance, accessibility, and SEO."
 pubDate: "Oct 22 2024"
 heroImage: "../../assets/lighthouse-ci-hero.jpg"
 ---
 
-Performance monitoring is crucial for any website, and Google's Lighthouse is the gold standard for measuring web performance, accessibility, best practices, and SEO. In this guide, I'll show you how to integrate the official Lighthouse CI directly into your GitHub Actions workflow.
+Google Lighthouse is one of the most popular tools for auditing web performance, accessibility, and SEO. It is convenient to have it integrated into your CI/CD pipeline to get informed about performance regressions without running the tool manually.
 
-## Why Lighthouse CI?
+Lighthouse is not the holy grail. Reaching a 100% score, especially on performance and SEO, will not guarantee a lot of traffic or conversions. Other factors, like accessibility and best practices, are more important to ensure a good user experience. SEO is a complex topic that requires more than a 100% score on Google Lighthouse.
 
-Lighthouse CI allows you to:
-- Automatically test your site on every deployment
-- Track performance metrics over time
-- Catch performance regressions before they reach production
-- Ensure accessibility and SEO standards are maintained
+Having it installed gives a good indication of what you should optimize on your website for every deployment.
 
 ## Setting Up the Workflow
 
@@ -46,6 +43,12 @@ jobs:
           LHCI_GITHUB_APP_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 ```
 
+
+As you can see, we are using the official `@lhci/cli` package from Google, not a user-created GitHub Action. My colleague, who is a DevOps specialist, discouraged using third-party actions when possible, as they can be outdated or even dangerous.
+
+The YAML file is quite simple: it pulls the code, sets up Node.js, builds the project, installs Lighthouse CI, and runs it. The environment variable `LHCI_GITHUB_APP_TOKEN` is required to allow Lighthouse CI to comment on pull requests presenting the results.
+
+
 ## Configuration File
 
 Create a `lighthouserc.json` file in your project root to configure Lighthouse CI:
@@ -75,43 +78,6 @@ Create a `lighthouserc.json` file in your project root to configure Lighthouse C
 }
 ```
 
-## Key Configuration Options
+Most likely you'll want to adjust the scores to fit your project needs. As I mentioned, reaching 100% in all categories wouldn't necessarily be beneficial for your project.
 
-- **staticDistDir**: Points to your built site directory
-- **url**: Array of URLs to test (relative to your site root)
-- **assertions**: Set minimum score thresholds for each category
-- **upload**: Where to store the detailed reports
-
-## What Happens Next
-
-Once set up, Lighthouse CI will:
-
-1. **Build your site** using your existing build process
-2. **Start a local server** to serve your static files
-3. **Run Lighthouse audits** on specified URLs
-4. **Check assertions** against your defined thresholds
-5. **Upload reports** to temporary public storage
-6. **Comment on PRs** with performance insights (if configured)
-
-## Benefits of the Official Implementation
-
-Using Google's official `@lhci/cli` directly instead of third-party actions gives you:
-
-- **Latest features** as soon as they're released
-- **Better reliability** with fewer dependencies
-- **More control** over configuration and customization
-- **Official support** from the Lighthouse team
-
-## Viewing Results
-
-After each run, you'll see:
-- **Pass/fail status** in your GitHub Actions summary
-- **Detailed reports** via the uploaded artifacts
-- **Performance metrics** for each audited page
-- **Specific recommendations** for improvements
-
-## Conclusion
-
-Integrating Lighthouse CI into your workflow ensures your site maintains high performance and accessibility standards. The official implementation provides the most reliable and up-to-date experience, helping you catch issues before they impact your users.
-
-Start monitoring your site's performance today and never ship a slow website again!
+If you want another tool to check accessibility in your pipeline, you can install [pa11y](https://github.com/pa11y/pa11y), an open-source accessibility testing tool.
