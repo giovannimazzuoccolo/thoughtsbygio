@@ -1,6 +1,7 @@
 :root {
   --accent: #1e40af;
   --accent-dark: #1d4ed8;
+  --accent-light: #3b82f6;
   --black: 31, 41, 55;
   --gray: 71, 85, 105;
   --gray-light: 241, 245, 249;
@@ -15,6 +16,7 @@
   :root {
     --accent: #60a5fa;
     --accent-dark: #3b82f6;
+    --accent-light: #1e40af;
     --bg: #1a1a1a;
     --black: 241, 245, 249;
     --gray-light: 30, 41, 59;
@@ -26,6 +28,7 @@
 [data-theme="dark"] {
   --accent: #60a5fa;
   --accent-dark: #3b82f6;
+  --accent-light: #1e40af;
   --bg: #1a1a1a;
   --black: 241, 245, 249;
   --gray-light: 30, 41, 59;
@@ -39,6 +42,7 @@
   --gray-light: 241, 245, 249;
   --text-primary: 45, 55, 72;
   --text-secondary: 75, 85, 99;
+  --accent-light: #3b82f6;
 }
 
 * {
@@ -131,14 +135,12 @@ p {
 }
 
 a {
-  color: var(--accent);
+  color: var(--accent-light);
   text-decoration: none;
-  border-bottom: 1px solid var(--accent);
-  transition: border-color 0.2s ease;
 }
 
 a:hover {
-  border-bottom-color: var(--accent);
+  color: var(--accent);
 }
 
 blockquote {
