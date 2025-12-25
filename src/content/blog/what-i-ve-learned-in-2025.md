@@ -2,7 +2,7 @@
 title: "What I've Learned in 2025"
 description: "Yes, it is the time of the year to reflect. But not too much, please."
 pubDate: "Dec 23 2025"
-heroImage: "../../assets/clock-2025jpg"
+heroImage: "../../assets/clock-2025.jpg"
 ---
 
 Everyone is doing this kind of posts at the end of the year, so I thought why not join the party? Here are a few things I've learned in 2025, both personally and professionally.
