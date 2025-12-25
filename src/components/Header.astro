@@ -1,59 +1,59 @@
 ---
-import { SITE_TITLE } from '../consts';
-import HeaderLink from './HeaderLink.astro';
-import ThemeToggle from './ThemeToggle.astro';
+import { SITE_TITLE } from "../consts";
+import HeaderLink from "./HeaderLink.astro";
+import ThemeToggle from "./ThemeToggle.astro";
 ---
 
 <header>
-	<nav>
-		<h2><a href="/">{SITE_TITLE}</a></h2>
-		<div class="internal-links">
-			<HeaderLink href="/blog">Blog</HeaderLink>
-			<ThemeToggle />
-		</div>
-	</nav>
+  <nav>
+    <h2><a href="/">{SITE_TITLE}</a></h2>
+    <div class="internal-links">
+      <!-- <HeaderLink href="/blog">Blog</HeaderLink> -->
+      <ThemeToggle />
+    </div>
+  </nav>
 </header>
 <style>
-	header {
-		margin: 0 0 3rem 0;
-		padding: 1.5rem 0;
-		border-bottom: 1px solid rgb(var(--gray-light));
-	}
-	
-	h2 {
-		margin: 0;
-		font-size: 1.5rem;
-		font-family: 'Cormorant Garamond', serif;
-		font-weight: 600;
-	}
+  header {
+    margin: 0 0 3rem 0;
+    padding: 1.5rem 0;
+    border-bottom: 1px solid rgb(var(--gray-light));
+  }
 
-	h2 a {
-		text-decoration: none;
-		color: rgb(var(--black));
-	}
-	
-	nav {
-		max-width: 65ch;
-		margin: 0 auto;
-		padding: 0 1.5rem;
-		display: flex;
-		align-items: center;
-		justify-content: space-between;
-	}
-	
-	.internal-links {
-		display: flex;
-		align-items: center;
-		gap: 2rem;
-	}
-	
-	@media (max-width: 768px) {
-		nav {
-			padding: 0 1rem;
-		}
-		
-		.internal-links {
-			gap: 1rem;
-		}
-	}
+  h2 {
+    margin: 0;
+    font-size: 1.5rem;
+    font-family: "Cormorant Garamond", serif;
+    font-weight: 600;
+  }
+
+  h2 a {
+    text-decoration: none;
+    color: rgb(var(--black));
+  }
+
+  nav {
+    max-width: 65ch;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .internal-links {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+  }
+
+  @media (max-width: 768px) {
+    nav {
+      padding: 0 1rem;
+    }
+
+    .internal-links {
+      gap: 1rem;
+    }
+  }
 </style>
