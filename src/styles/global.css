@@ -319,6 +319,19 @@ th {
   }
 }
 
+/* Social share icons color adjustment */
+[data-theme="dark"] .astro-social-share svg,
+[data-theme="dark"] .astro-social-share svg path {
+  /* 30% darker than pure white for dark mode */
+  fill: #b3b3b3 !important;
+}
+
+[data-theme="light"] .astro-social-share svg,
+[data-theme="light"] .astro-social-share svg path {
+  /* 30% lighter than pure black for light mode */
+  fill: #4d4d4d !important;
+}
+
 .sr-only {
   position: absolute;
   width: 1px;
